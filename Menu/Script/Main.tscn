@@ -1,0 +1,80 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Sprites/Snake.png" type="Texture" id=1]
+[ext_resource path="res://Script/Main.gd" type="Script" id=2]
+
+[node name="Main" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.662745, 0.690196, 0.713726, 1 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+margin_right = 305.0
+margin_bottom = 600.0
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+margin_right = 305.0
+margin_bottom = 100.0
+custom_constants/separation = 30
+
+[node name="SnakeLabel" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer"]
+margin_top = 43.0
+margin_right = 45.0
+margin_bottom = 57.0
+text = "Snake :"
+
+[node name="SnakeIcon" type="TextureRect" parent="ScrollContainer/VBoxContainer/HBoxContainer"]
+margin_left = 75.0
+margin_right = 175.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+texture = ExtResource( 1 )
+expand = true
+
+[node name="SnakeButton" type="Button" parent="ScrollContainer/VBoxContainer/HBoxContainer"]
+margin_left = 205.0
+margin_right = 305.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 0 )
+text = "JOUER"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+margin_top = 104.0
+margin_right = 305.0
+margin_bottom = 204.0
+custom_constants/separation = 30
+
+[node name="FlappyBirdLabel" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer2"]
+margin_top = 43.0
+margin_right = 45.0
+margin_bottom = 57.0
+text = "Snake :"
+
+[node name="FlappyBirdIcon" type="TextureRect" parent="ScrollContainer/VBoxContainer/HBoxContainer2"]
+margin_left = 75.0
+margin_right = 175.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+texture = ExtResource( 1 )
+expand = true
+
+[node name="FlappyBirdButton" type="Button" parent="ScrollContainer/VBoxContainer/HBoxContainer2"]
+margin_left = 205.0
+margin_right = 305.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 0 )
+text = "JOUER"
+
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/HBoxContainer/SnakeButton" to="." method="_on_SnakeButton_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/HBoxContainer2/FlappyBirdButton" to="." method="_on_SnakeButton_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/HBoxContainer2/FlappyBirdButton" to="." method="_on_FlappyBirdButton_pressed"]
